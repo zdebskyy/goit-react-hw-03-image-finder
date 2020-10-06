@@ -44,7 +44,7 @@ export default class App extends Component {
   handleShowModal = (src) => {
     this.setState({ showModal: true, src: src });
   };
-  onEscPressCloseModal = () => {
+  onCloseModal = () => {
     this.setState({ showModal: false });
   };
 
@@ -56,9 +56,7 @@ export default class App extends Component {
 
         <ImageGallery images={img} onShowModal={this.handleShowModal} />
 
-        {showModal && (
-          <Modal src={src} onCloseModal={this.onEscPressCloseModal} />
-        )}
+        {showModal && <Modal src={src} onCloseModal={this.onCloseModal} />}
 
         {loading && (
           <Loader
