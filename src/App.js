@@ -22,8 +22,16 @@ export default class App extends Component {
     const nextQuery = this.state.searchQuery;
     if (prevQuery !== nextQuery) {
       this.fetchPictures();
+      this.scrollWindow();
     }
   }
+
+  scrollWindow = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   fetchPictures = () => {
     const { searchQuery, page } = this.state;
